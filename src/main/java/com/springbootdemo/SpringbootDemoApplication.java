@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  * 所以如果controller不在application类的下面 可以加上
  * @ComponentScan(basePackages = {"com.springbootdemo.*"}) 来指定要扫描的包
  */
-//@ComponentScan(basePackages = {"com.springbootdemo.*"})
+@ComponentScan(basePackages = {"com.springbootdemo.*"})
 public class SpringbootDemoApplication {
 
     public static void main(String[] args) {
