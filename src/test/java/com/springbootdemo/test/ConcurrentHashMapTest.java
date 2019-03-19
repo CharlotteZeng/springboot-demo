@@ -52,4 +52,31 @@ public class ConcurrentHashMapTest {
     public static void removeCache(String account) {
         cacheMap.remove(getCacheKey(account));
     }
+    public static void main(String[] args){
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String account = "zhc";
+                initCache(account);
+                String cacheKey = getCacheKey(account);
+                String cache = getCache(cacheKey);
+                System.out.println(cache);
+
+            }
+        });
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String account = "zhc";
+                initCache(account);
+                String cacheKey = getCacheKey(account);
+                String cache = getCache(cacheKey);
+                System.out.println(cache);
+
+            }
+        });
+        t.start();
+        t1.start();
+
+    }
 }
