@@ -5,9 +5,19 @@ import java.util.Map;
 
 public class TestMain {
     public static void main(String[] args){
-        testHashCode();
-    }
 
+
+    }
+    /**
+     * 运算规则是：两个数转为二进制，然后从高位开始比较，如果相同则为0，不相同则为1。
+     */
+    private static void test(){
+        System.out.println(2^1);
+        System.out.println(2^2);
+        System.out.println(2^3);
+        System.out.println(2^4);
+        System.out.println(2^5);
+    }
     /**
      * 练习hash碰撞
      */
