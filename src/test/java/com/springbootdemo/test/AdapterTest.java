@@ -2,6 +2,11 @@ package com.springbootdemo.test;
 
 /**
  * 设配器设计模式
+ * (1)目标(Target)角色：这就是所期待得到的接口。注意：由于这里讨论的是类适配器模式，因此目标不可以是类。
+
+ (2)源(Adapee)角色：现在需要适配的接口。
+
+ (3)适配器(Adaper)角色：适配器类是本模式的核心。适配器把源接口转换成目标接口。显然，这一角色不可以是接口，而必须是具体类。
  */
 public class AdapterTest {
     public static void main(String[] args){
