@@ -212,6 +212,7 @@ public class Countries {
     return new ArrayList<String>(select(size).keySet());
   }
   public static void main(String[] args) {
+    System.out.println(names(10));
     /*print(capitals(10));
     print(names(10));
     print(new HashMap<String,String>(capitals(3)));
