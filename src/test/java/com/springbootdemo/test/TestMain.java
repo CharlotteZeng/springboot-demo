@@ -2,10 +2,70 @@ package com.springbootdemo.test;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
 
 public class TestMain {
-    public static void main(String[] args){
+    public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
+//        testLock();
+testCyclicBarrier();
+    }
 
+    private static void testCyclicBarrier() throws BrokenBarrierException, InterruptedException {
+        CyclicBarrier cyclicBarrier =new CyclicBarrier(3);
+//        cyclicBarrier..await();
+
+    }
+    /**
+     * 一个加1一个减1，来5轮
+     */
+
+    private static void testLock(){
+        ShareData shareData = new ShareData();
+        new Thread(()->{
+            for (int i = 0; i < 6; i++) {
+                try {
+                    shareData.increment();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        },"T1").start();
+        new Thread(()->{
+            for (int i = 0; i < 6; i++) {
+                try {
+                    shareData.decrement();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        },"T2").start();
+        new Thread(()->{
+            for (int i = 0; i < 6; i++) {
+                try {
+                    shareData.increment();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        },"T3").start();
+        new Thread(()->{
+            for (int i = 0; i < 6; i++) {
+                try {
+                    shareData.decrement();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        },"T4").start();
 
     }
     /**
