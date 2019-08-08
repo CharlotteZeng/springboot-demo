@@ -7,8 +7,8 @@ import java.util.Set;
 
 public class ArithmeticClass {
     public static void main(String[] args){
-        String s = "abcdfabcdbb";
-        System.out.println(lengthOfLongestSubstring1(s));
+        String s = "pwwkew";
+        System.out.println(lengthOfLongestSubstring3(s));
     }
 //给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
 
@@ -116,16 +116,18 @@ public class ArithmeticClass {
         }
         return ans;
     }
-    public int lengthOfLongestSubstring3(String s) {
-        int n = s.length(), ans = 0;
-        Map<Character, Integer> map = new HashMap<>(); // current index of character
-        // try to extend the range [i, j]
-        for (int j = 0, i = 0; j < n; j++) {
-            if (map.containsKey(s.charAt(j))) {
-                i = Math.max(map.get(s.charAt(j)), i);
+    public static int lengthOfLongestSubstring3(String s) {
+        int ans = 0;
+        Map<Character,Integer> map = new HashMap<>();
+        char[] chars = s.toCharArray();
+        for (int start = 0,end=0; end < chars.length; end++) {
+            char c = chars[end];
+            if (map.containsKey(c)){
+                System.out.println((map.get(c)==(end+1))+"\t  start="+start+"\t map.get(c)="+map.get(c)+"\t chars[end]="+c+"\t end+1="+(end+1));
+                start=Math.max(start,map.get(c));
             }
-            ans = Math.max(ans, j - i + 1);
-            map.put(s.charAt(j), j + 1);
+            ans=Math.max(ans,end-start+1);
+            map.put(c,end+1);
         }
         return ans;
     }
