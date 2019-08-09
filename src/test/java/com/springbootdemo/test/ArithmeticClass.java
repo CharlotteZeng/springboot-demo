@@ -137,14 +137,7 @@ public class ArithmeticClass {
     }
 
     public static void reverse(int x){
-        String s = String.valueOf(x);
-        char[] chars = s.toCharArray();
-        List list = new LinkedList();
-        for (int i = 0; i < chars.length; i++) {
-            list.add(chars[i]);
-        }
-        Collections.reverse(list);
-        System.out.println(JSON.toJSONString(list));
+
     }
 
 }
