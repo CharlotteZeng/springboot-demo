@@ -1,14 +1,14 @@
 package com.springbootdemo.test;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.alibaba.fastjson.JSON;
+
+import java.util.*;
 
 public class ArithmeticClass {
     public static void main(String[] args){
         String s = "pwwkew";
-        System.out.println(lengthOfLongestSubstring3(s));
+//        System.out.println(lengthOfLongestSubstring3(s));
+        reverse(Integer.MAX_VALUE);
     }
 //给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
 
@@ -116,20 +116,35 @@ public class ArithmeticClass {
         }
         return ans;
     }
+
+    /**
+     * 滑动窗口算法解题
+     * @param s
+     * @return
+     */
     public static int lengthOfLongestSubstring3(String s) {
         int ans = 0;
-        Map<Character,Integer> map = new HashMap<>();
         char[] chars = s.toCharArray();
+        Map<Character,Integer> map = new HashMap<>();
         for (int start = 0,end=0; end < chars.length; end++) {
             char c = chars[end];
-            if (map.containsKey(c)){
-                System.out.println((map.get(c)==(end+1))+"\t  start="+start+"\t map.get(c)="+map.get(c)+"\t chars[end]="+c+"\t end+1="+(end+1));
-                start=Math.max(start,map.get(c));
-            }
+            if (map.containsKey(c))
+                start = Math.max(start,map.get(c));
             ans=Math.max(ans,end-start+1);
             map.put(c,end+1);
         }
         return ans;
+    }
+
+    public static void reverse(int x){
+        String s = String.valueOf(x);
+        char[] chars = s.toCharArray();
+        List list = new LinkedList();
+        for (int i = 0; i < chars.length; i++) {
+            list.add(chars[i]);
+        }
+        Collections.reverse(list);
+        System.out.println(JSON.toJSONString(list));
     }
 
 }
