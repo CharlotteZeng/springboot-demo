@@ -2,13 +2,13 @@ package com.springbootdemo.test;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.*;
 
 public class TestMain {
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
 //        testLock();
-testCyclicBarrier();
+//testCyclicBarrier();
+        System.out.println(Runtime.getRuntime().availableProcessors());
     }
 
     private static void testCyclicBarrier() throws BrokenBarrierException, InterruptedException {
