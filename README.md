@@ -1,6 +1,7 @@
 # springboot demo 项目使用手册
 
-![Spring Boot 2.0](https://img.shields.io/badge/Spring%20Boot-2.0-brightgreen.svg)
+![Spring Boot 2.1.3](https://img.shields.io/badge/spring%20boot-2.1.3-red)
+![redis 2.6.2](https://img.shields.io/badge/redis-2.6.2-brightgreen)
 ![Mysql 5.6](https://img.shields.io/badge/Mysql-5.6-blue.svg)
 ![JDK 1.8](https://img.shields.io/badge/JDK-1.8-brightgreen.svg)
 ![Maven](https://img.shields.io/badge/Maven-3.5.0-yellowgreen.svg)
