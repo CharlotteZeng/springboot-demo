@@ -5,7 +5,6 @@
 ![Mysql 5.6](https://img.shields.io/badge/Mysql-5.6-blue.svg)
 ![JDK 1.8](https://img.shields.io/badge/JDK-1.8-brightgreen.svg)
 ![Maven](https://img.shields.io/badge/Maven-3.5.0-yellowgreen.svg)
-![license](https://img.shields.io/badge/license-MPL--2.0-blue.svg)
  
 ##项目描述
 此项目用于快速搭建javaee项目；目前本项目运行环境为springboot、mybatis、jdk1.8；
