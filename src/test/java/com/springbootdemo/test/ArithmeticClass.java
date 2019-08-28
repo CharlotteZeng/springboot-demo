@@ -6,9 +6,9 @@ import java.util.*;
 
 public class ArithmeticClass {
     public static void main(String[] args){
-        String s = "pwwkew";
+//        String s = "pwwkew";
 //        System.out.println(lengthOfLongestSubstring3(s));
-        reverse(Integer.MAX_VALUE);
+        reverse(456);
     }
 //给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
 
@@ -136,8 +136,29 @@ public class ArithmeticClass {
         return ans;
     }
 
-    public static void reverse(int x){
-
+    /**
+     * 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
+     * @param x
+     * @return
+     */
+    public static int reverse(int x){
+        System.out.println("原数字"+x);
+        int rev = 0;
+        while (x!=0){
+            int pop = x%10;
+            x = x/10;
+            if (rev>Integer.MAX_VALUE/10||(rev==Integer.MAX_VALUE&&pop>Integer.MAX_VALUE%10)){
+                System.out.println("return 0");
+                return 0;
+            }
+            if (rev<Integer.MIN_VALUE/10||(rev==Integer.MIN_VALUE&&pop<Integer.MAX_VALUE%10)){
+                System.out.println("return 0");
+                return 0;
+            }
+            rev = rev*10+pop;
+        }
+        System.out.println("结果数字"+rev);
+        return rev;
     }
 
 }
