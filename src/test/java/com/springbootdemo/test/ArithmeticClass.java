@@ -8,7 +8,9 @@ public class ArithmeticClass {
     public static void main(String[] args){
 //        String s = "pwwkew";
 //        System.out.println(lengthOfLongestSubstring3(s));
-        reverse(456);
+//        reverse(456);
+        int [] a= {18,10,23,46,9};
+        quickSort(a,0,a.length-1);
     }
 //给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
 
@@ -160,5 +162,40 @@ public class ArithmeticClass {
         System.out.println("结果数字"+rev);
         return rev;
     }
+    public static void quickSort(int[] a ,int low ,int high){
+        if (low<high) {
+            int middle = quicksortForGetMiddle(a, 0, a.length - 1);
+            quicksortForGetMiddle(a, 0, middle - 1);
+            quicksortForGetMiddle(a, middle + 1, a.length - 1);
+        }
+    }
 
+    /**
+     * 
+     * @param a
+     * @param low
+     * @param high
+     * @return
+     */
+    public static int quicksortForGetMiddle(int[] a, int low, int high){
+        System.out.println(JSON.toJSONString(a));
+        int temp = a[low];
+        while(low<high){
+            while(low<high&&a[high]>=temp){
+                high--;
+            }
+            a[low] = a[high];
+            while (low<high&&a[low]<=temp){
+                low++;
+            }
+            a[high]=a[low];
+        }
+        a[low]=temp;
+
+        System.out.println(JSON.toJSONString(a));
+        System.out.println(low);
+        return low;
+//        quicksort(a,0,low-1);
+//        quicksort(a,low+1,a.length-1);
+    }
 }

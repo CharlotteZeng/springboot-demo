@@ -1,6 +1,11 @@
 package com.springbootdemo.test;
 
+import com.alibaba.fastjson.JSONArray;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.*;
 
@@ -9,6 +14,13 @@ public class TestMain {
 //        testLock();
 //testCyclicBarrier();
         System.out.println(Runtime.getRuntime().availableProcessors());
+        JSONArray list = new JSONArray();
+        list.add("abc");
+        list.add("abc1");
+        list.add("abc2");
+        list.add("abc3");
+        String symbol = StringUtils.join(list.toArray(), ",");
+        System.out.println(symbol);
     }
 
     private static void testCyclicBarrier() throws BrokenBarrierException, InterruptedException {
