@@ -163,24 +163,25 @@ public class ArithmeticClass {
         return rev;
     }
     public static void quickSort(int[] a ,int low ,int high){
+        System.out.println(JSON.toJSONString(a));
         if (low<high) {
             int middle = quicksortForGetMiddle(a, 0, a.length - 1);
             quicksortForGetMiddle(a, 0, middle - 1);
             quicksortForGetMiddle(a, middle + 1, a.length - 1);
         }
+        System.out.println(JSON.toJSONString(a));
     }
 
     /**
-     * 
+     * 获取中间值
      * @param a
      * @param low
      * @param high
      * @return
      */
     public static int quicksortForGetMiddle(int[] a, int low, int high){
-        System.out.println(JSON.toJSONString(a));
         int temp = a[low];
-        while(low<high){
+        while (low<high){
             while(low<high&&a[high]>=temp){
                 high--;
             }
@@ -188,14 +189,9 @@ public class ArithmeticClass {
             while (low<high&&a[low]<=temp){
                 low++;
             }
-            a[high]=a[low];
+            a[high] = a[low];
         }
-        a[low]=temp;
-
-        System.out.println(JSON.toJSONString(a));
-        System.out.println(low);
+        a[low] = temp;
         return low;
-//        quicksort(a,0,low-1);
-//        quicksort(a,low+1,a.length-1);
     }
 }
