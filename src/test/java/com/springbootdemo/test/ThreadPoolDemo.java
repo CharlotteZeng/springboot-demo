@@ -26,5 +26,7 @@ public class ThreadPoolDemo {
             },"T"+i));
         }
         System.out.println("获取cpu核心数："+Runtime.getRuntime().availableProcessors());
+
+
     }
 }
