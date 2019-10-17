@@ -121,6 +121,7 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+            <!--使用maven启动springboot项目的插件 命令:mvn spring-boot:run-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
