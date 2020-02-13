@@ -1,6 +1,7 @@
 package com.springbootdemo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.springbootdemo.annotation.LogAnnotation;
 import com.springbootdemo.redis.RedisUtils;
 import com.springbootdemo.utils.AESUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class HelloController {
 
     @Autowired
     RedisUtils redisUtils;
+    @LogAnnotation(operateType = "日志注解")
     @RequestMapping("/hello")
     public String hello(){
         redisUtils.set("key","val");

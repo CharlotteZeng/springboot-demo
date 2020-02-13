@@ -6,6 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CollectionsTest {
+    public String name;
+
+    public CollectionsTest(String name) {
+
+        this.name = name;
+
+    }
     public static void main(String[] args){
         List<String> l = new ArrayList<>();
         l.add(0,"1");
