@@ -1,4 +1,3 @@
-#spring boot port configuration
-server.port=8082
-
-logging.level.org.springframework=INFO
+server:
+  port: 8080
+logging.level.org.springframework: DEBUG

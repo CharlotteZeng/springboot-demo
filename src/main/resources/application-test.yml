@@ -1,4 +1,5 @@
 #spring boot port configuration
-server.port=8081
+server:
+  port: 8081
 
-logging.level.org.springframework=DEBUG
+logging.level.org.springframework: DEBUG
