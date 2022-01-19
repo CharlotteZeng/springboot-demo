@@ -30,6 +30,7 @@ public class HelloController {
      */
     @Value("${myvalue}")
     String myvalue;
+
     @LogAnnotation(operateType = "日志注解")
     @RequestMapping("/hello")
     public String hello(){
