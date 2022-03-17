@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class ArticleController {
     @Autowired
@@ -25,9 +27,20 @@ public class ArticleController {
         System.out.println(articleJsonString);
         return articleJsonString;
     }
-    @RequestMapping(value = "/findArticleById",method = {RequestMethod.POST})
+    @RequestMapping(value = "/findArticleById",method = {RequestMethod.GET})
     public String findArticleById(String articleId){
         Article article = articleService.findArticleById(articleId);
         return JSON.toJSONString(article);
     }
+
+    /**
+     * 查询未逻辑删除的文章列表
+     * @return
+     */
+    @RequestMapping(value = "/findArticleList",method = {RequestMethod.POST})
+    public String findArticleList( ){
+        List<Article> articleList = articleService.findArticleList();
+        return JSON.toJSONString(articleList);
+    }
+
 }
