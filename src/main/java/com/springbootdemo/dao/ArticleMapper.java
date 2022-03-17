@@ -34,4 +34,12 @@ public interface ArticleMapper {
             "#{article.address,jdbcType=VARCHAR})")
     public int insert(@Param("article")Article article);
 
+
+    @Select("select * from article where is_delete is not Null and is_delete != '1'")
+    /**
+     * 引用 @Results的id 可以直接使用它的配置
+     */
+    @ResultMap(value = "articleMap")
+    public List<Article> findList();
+
 }
