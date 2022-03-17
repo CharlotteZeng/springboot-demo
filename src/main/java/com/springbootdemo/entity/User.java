@@ -3,24 +3,25 @@ package com.springbootdemo.entity;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private Long id;
-    private String username;
+    private String uid;
+    private String uname;
     private String password;
+    private String email;
 
-    public Long getId() {
-        return id;
+    public String getUid() {
+        return uid;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUname() {
+        return uname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUname(String uname) {
+        this.uname = uname;
     }
 
     public String getPassword() {
@@ -31,4 +32,11 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
