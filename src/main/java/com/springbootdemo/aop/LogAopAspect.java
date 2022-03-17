@@ -6,6 +6,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Aspect
@@ -21,6 +22,10 @@ public class LogAopAspect {
         Object proceed = null;
         try {
             System.out.println("正常通知");
+            String targetName = joinPoint.getTarget().getClass().getName();
+            if (null!=targetName&&targetName.equals("com.springbootdemo.service.impl.HelloServiceImpl"))
+                System.out.println("此类型为目标类型:"+targetName);
+            System.out.println("time:"+new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date())+"   targetName:"+targetName);
             proceed=joinPoint.proceed();
         } catch (Throwable throwable) {
             System.out.println("异常通知");
