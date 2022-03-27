@@ -1,14 +1,20 @@
 package com.springbootdemo.entity;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.ibatis.type.Alias;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 public class Article {
 
   private String title;
   private String context;
-  private java.sql.Timestamp publishDate;
+  @DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")//页面写入数据库时格式化
+  @JSONField(format="yyyy-MM-dd hh:mm:ss")//数据库导出页面时json格式化
+  private Date publishDate;
   private String author;
   private String subtitle;
   private String articleId;
@@ -49,16 +55,6 @@ public class Article {
     this.context = context;
   }
 
-
-  public java.sql.Timestamp getPublishDate() {
-    return publishDate;
-  }
-
-  public void setPublishDate(java.sql.Timestamp publishDate) {
-    this.publishDate = publishDate;
-  }
-
-
   public String getAuthor() {
     return author;
   }
@@ -95,18 +91,11 @@ public class Article {
   }
 
 
-  @Override
-  public String toString() {
-    return new ToStringBuilder(this)
-            .append("title", title)
-            .append("context", context)
-            .append("publishDate", publishDate)
-            .append("author", author)
-            .append("subtitle", subtitle)
-            .append("articleId", articleId)
-            .append("isDelete", isDelete)
-            .append("address", address)
-            .append("titlePage", titlePage)
-            .toString();
+  public Date getPublishDate() {
+    return publishDate;
+  }
+
+  public void setPublishDate(Date publishDate) {
+    this.publishDate = publishDate;
   }
 }

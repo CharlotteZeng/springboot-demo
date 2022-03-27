@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.springbootdemo.annotation.LogAnnotation;
 import com.springbootdemo.entity.Article;
 import com.springbootdemo.service.ArticleService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,8 +39,10 @@ public class ArticleController {
      * @return
      */
     @RequestMapping(value = "/findArticleList",method = {RequestMethod.POST})
-    public String findArticleList( ){
-        List<Article> articleList = articleService.findArticleList();
+    public String findArticleList(@Param("isCache")String isCache){
+        //1或null表示用redis缓存 0代表不用
+        boolean isCacheb = null == isCache||isCache.equals("1")?true:false;
+        List<Article> articleList = articleService.findArticleList(isCacheb);
         return JSON.toJSONString(articleList);
     }
 

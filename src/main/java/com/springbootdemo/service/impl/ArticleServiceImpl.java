@@ -41,17 +41,21 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<Article> findArticleList() {
-        Object articleList = redisUtils.get(ARTICLELISTKEY);
-        //判断缓存是否存在 不存在就直接查库 否则取缓存
-        if (null==articleList) {
-            List<Article> list = articleMapper.findList();
-            redisUtils.set(ARTICLELISTKEY,list);
-            return list;
-        }else{
-
-            return (List)articleList;
+    public List findArticleList(boolean isCache) {
+        Object articleList ;
+        if (isCache){
+            articleList = redisUtils.get(ARTICLELISTKEY);
+            //判断缓存是否存在 不存在就直接查库 否则取缓存
+            if (null==articleList) {
+                List<Article> list = articleMapper.findList();
+                redisUtils.set(ARTICLELISTKEY,list,3600*24);
+                return list;
+            }else
+                return (List) articleList;
         }
+
+        return (List)articleMapper.findList();
+
 
     }
 }

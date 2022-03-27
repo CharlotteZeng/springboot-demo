@@ -15,7 +15,8 @@ public interface ArticleService {
 
     /**
      * 查询未逻辑删除的所有文章实体
+     * @param isCache true 用缓存 false 不用缓存
      * @return
      */
-    public List<Article> findArticleList();
+    public List findArticleList(boolean isCache);
 }
