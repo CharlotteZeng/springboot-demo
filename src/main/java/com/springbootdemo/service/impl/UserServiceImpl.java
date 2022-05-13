@@ -20,12 +20,12 @@ public class UserServiceImpl implements UserService {
     @LogAnnotation(operateType = "userervice 日志")
     @Override
     public User findUser(User user) {
-        try {
+        /*try {
             String decryptPassword = AESUtil.decrypt(user.getPassword(), aseKey);
             user.setPassword(decryptPassword);
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
         List<User> byUser = userMapper.findByUser(user);
         if (null==byUser||byUser.size()<=0){
             return null;
